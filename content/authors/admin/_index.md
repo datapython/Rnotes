@@ -48,6 +48,6 @@ superuser: true
 title: Shengguo Li
 ---
 
-Shengguo Li is a principle statistician working at Rutgers University. He is interested in data science and statistical modeling using R and python. He has a biomedical research background as well as statistics.
+I am a principle statistician working at Rutgers University. I am very interested in data science and statistical modeling using R and python. Also I have a biomedical research background as well.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
