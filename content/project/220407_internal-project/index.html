@@ -116,6 +116,15 @@ active: false</code></pre>
 </div>
 <div id="last-step---go-to-your-netlify-account-to-re-deploy" class="section level2">
 <h2>Last step - go to your Netlify account to re-deploy</h2>
+<p>Just follow the above blogs to deploy your blogdown site. But, one thing I ’d like to point out is that the continuous deployment was not working with my site. What I found out is that in the <code>Continuous Deployment - Settings for Continuous Deployment from a Git repository</code> section, my <code>build setting</code> was like this:</p>
+<pre><code>    Build settings
+
+    Base directory              Not set
+    Build command               hugo   &lt;--- delete it fix the problem
+    Publish directory           public
+    Deploy log visibility       Logs are public
+    Build                       Active</code></pre>
+<p>Build command was set hugo. After delete it and leave it blank. The CD immediately begins.</p>
 <p>You are done! Congratulations!</p>
 </div>
 <div id="references" class="section level2 unnumbered">

@@ -119,7 +119,19 @@ You can follow the [routine steps] here(https://stackoverflow.com/questions/6606
 
 `git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git`   
 
-## Last step - go to your Netlify account to re-deploy  
+## Last step - go to your Netlify account to re-deploy    
+
+Just follow the above blogs to deploy your blogdown site. But, one thing I 'd like to point out is that the continuous deployment was not working with my site. What I found out is that in the `Continuous Deployment - Settings for Continuous Deployment from a Git repository` section, my ` build setting` was like this:  
+
+        Build settings
+
+        Base directory              Not set
+        Build command               hugo   <--- delete it fix the problem
+        Publish directory           public
+        Deploy log visibility       Logs are public
+        Build                       Active
+
+Build command was set hugo. After delete it and leave it blank. The CD immediately begins.
 
 You are done! Congratulations!
 
