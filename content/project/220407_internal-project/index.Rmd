@@ -104,6 +104,8 @@ You can follow the [routine steps] here(https://stackoverflow.com/questions/6606
 
 `git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git`   
 
+## Last step - go to your Netlify account to re-deploy  
+
 You are done! Congratulations!
 
 ## References
