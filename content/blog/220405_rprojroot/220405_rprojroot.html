@@ -1,13 +1,25 @@
 ---
-title: "First Post"
+title: "rprojroot makes setwd() for Rmarkdown project so easy"
 author: "Shengguo"
-date: "2022-04-06 20:06:43"
+date: "2022-04-07 19:52:08"
 categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+tags: ["R Markdown", "rprojroot"]
 ---
 
 
 
-<div id="first-post" class="section level1">
-<h1>First Post</h1>
-</div>
+<p>Recently, just found that the package <code>rprojroot</code> is very useful when working on a Rmarkdown file. <a href="https://rprojroot.r-lib.org/index.html">See detail</a>. It makes <code>setwd()</code> for Rmarkdown project so much easier by simply adding this line of code into your first code chunk.</p>
+<p><code>knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())</code></p>
+<p><strong>Inside a Rmarkdown project</strong></p>
+<pre class="r"><code># To find the root directory for the root the project when using RStudio.
+rprojroot::find_rstudio_root_file()  
+## [1] &quot;/home/sl1016/SLfiles/all_R/myproj/blogs/Rnotes&quot;
+
+# To check if a sub-directory exists
+rprojroot::has_dir(&quot;data&quot;)
+## Root criterion: contains a directory &quot;data&quot;
+
+# To check if a file exists
+rprojroot::has_file(&quot;index.md&quot;)
+## Root criterion: contains a file &quot;index.md&quot;</code></pre>
+<p>Similarly, it works for package project, <code>rprojroot::find_package_root_file()</code>.</p>

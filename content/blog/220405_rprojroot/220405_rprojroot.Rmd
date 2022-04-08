@@ -1,5 +1,5 @@
 ---
-title: "First Post"
+title: "rprojroot makes setwd() for Rmarkdown project so easy"
 author: "Shengguo"
 date: "`r Sys.time()`"
 categories: ["R"]
@@ -24,14 +24,14 @@ Recently, just found that the package `rprojroot` is very useful when working on
 
 __Inside a Rmarkdown project__
 
-```{r}
-# To find the directory for the root.
+```{r echo=TRUE}
+# To find the root directory for the root the project when using RStudio.
 rprojroot::find_rstudio_root_file()  
 
-# To check if a subdirectory exists
+# To check if a sub-directory exists
 rprojroot::has_dir("data")
 
-# To check if the file exists
+# To check if a file exists
 rprojroot::has_file("index.md")
 ```
 
