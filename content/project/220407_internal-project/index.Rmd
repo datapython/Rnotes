@@ -98,4 +98,12 @@ In my case, I just need it for blog post for my random notes and some small pers
 
   However, you do need to be sure all of the actions here are consistent with the menu list selection. By the way, you can also delete those you don't need any more for the future.    
   
+## Work with git to push all your edits  
+
+You can follow the [routine steps] here(https://stackoverflow.com/questions/66065099/how-to-update-github-authentification-token-on-rstudio-to-match-the-new-policy) or run the code like this below once you get your token,  
+
+`git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git`   
+
+You are done! Congratulations!
+
 ## References
