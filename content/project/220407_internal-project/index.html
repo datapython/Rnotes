@@ -32,32 +32,43 @@ toc: true
 
 </div>
 
-<p>This is a collection of notes on setting up my first blogdown, which is simple including only Home, Blogs, Projects and Contact. For comprehensive coverage, please refer to the ebook by Yihui Xie, Amber Thomas, Alison Presmanes Hill <span class="citation">(<a href="#ref-hill_blogdown_2022" role="doc-biblioref">2022</a>)</span>. Several tutorials including Alison Hill’s <a href="https://www.apreshill.com/blog/2020-12-blogdown-checks/">blog1</a> and <a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">blog2</a>, A. Solomon Kurz’s <a href="https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/">blog</a> and Jenny Sloane’s <a href="https://jennysloane.netlify.app/blog/blogdown/">blog</a> are great resources.</p>
-<p>Here, I will just emphasize some of the important points. If you happen to read this post, I ’d assume that you are already familiar to R, RStudio as well as github. Otherwise, please install them first before going any further.</p>
+<p>This is a collection of notes on setting up my first blogdown, which is simple including only Home, Blogs, Projects and Contact. For comprehensive coverage, please refer to the ebook by Yihui Xie, Amber Thomas, Alison Presmanes Hill <span class="citation">(<a href="#ref-hill_blogdown_2022" role="doc-biblioref">2022</a>)</span>. Several tutorials including Alison Hill’s <a href="https://www.apreshill.com/blog/2020-12-blogdown-checks/">blog1</a>, <a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">blog2</a>, A. Solomon Kurz’s <a href="https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/">blog</a> and Jenny Sloane’s <a href="https://jennysloane.netlify.app/blog/blogdown/">blog</a> are great resources.</p>
+<p>Here, I will just emphasize some of the important points. If you happen to read this post, I ’d assume that you are already familiar to R, RStudio as well as Github. Otherwise, please install them first before going any further.</p>
 <div id="start-project-from-creating-repo-at-your-github" class="section level2">
 <h2>Start project from creating repo at your github</h2>
-<p>You can find the screenshot from Alison Hill’s <a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">blog</a>. Then, click the green code button, you see <code>https://github.com/your_user_name/your_repo.git</code> with a double squares at the right end. Click to copy this URL link and go to your RStudio, create a new project, <code>File -&gt; New Project -&gt; Version Control -&gt; Git</code>, paste the link to start your new project directory, which is your project root directory.</p>
+<p>You can find the screenshot from Alison Hill’s <a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">blog</a>. Then, click the <code>green code button</code>, you see <code>https://github.com/your_user_name/your_repo.git</code> with a double squares at the right end. Click to copy this URL link and go to your RStudio and create a new project. Follow steps, <code>File -&gt; New Project -&gt; Version Control -&gt; Git</code>, and then paste the repo link to get your new project directory, which is your project root directory.</p>
 </div>
-<div id="work-with-blogdown" class="section level2">
-<h2>Work with blogdown</h2>
-<p>Now, you are ready to work on your blogdown project. Before doing anything, be sure blogdown is installed and then you can work on the console.</p>
+<div id="work-with-hugo" class="section level2">
+<h2>Work with hugo</h2>
+<p>Now, you are ready to work on your blogdown project. Before doing anything, be sure <code>blogdown</code> package is installed and then you can work on the console to run the following commands.</p>
 <ul>
 <li><code>blogdown::install_hugo()</code>: hugo is a static site generator.<br />
 </li>
-<li><code>blogdown::new_site(theme = "wowchemy/starter-academic")</code>: I used this theme, but you can try <a href="https://hugothemesfree.com/">others</a>. At this step, you would see a bunch of files and folders generated in your project directory. And choose <code>y</code> to the prompt <code>Want to serve and preview the site now? (y/n).</code> to start the local server. If you click the <code>viewer</code> tab in a quadrant pane, you ’d see your site open.</li>
+<li><code>blogdown::new_site(theme = "wowchemy/starter-academic")</code>: I chosen this theme, but you may try <a href="https://hugothemesfree.com/">others</a> if you like. At this step, you would see a bunch of files and folders generated in your project directory, and choose <code>y</code> to the prompt <code>Want to serve and preview the site now? (y/n).</code> to start the local server. Now, if you click the <code>viewer</code> tab in a quadrant pane, you ’d see your site open for the first time.</li>
 </ul>
 </div>
 <div id="work-on-.gitignore" class="section level2">
 <h2>Work on .gitignore</h2>
-<p>There are files we won’t like to share with public for reasons. We can put those under <code>.gitignore</code>. If you are not so sure, you can run a couple of check at console to get suggestions.</p>
+<p>There are files we won’t like to share with public for reasons. We can put those under <code>.gitignore</code>. If you are not so sure, you can run a check below at console to get suggestions.</p>
 <ul>
-<li><code>blogdown::check_gitignore()</code>: You get the file or folder names suggested.<br />
-</li>
-<li><code>file.edit(".gitignore")</code>: Add all suggested into the list. You’d get the same <a href="https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/">list</a></li>
+<li><p><code>blogdown::check_gitignore()</code>: You get the file or folder names suggested. <a href="https://www.apreshill.com/blog/2020-12-blogdown-checks/">See here</a>.</p></li>
+<li><p><code>file.edit(".gitignore")</code>: Add all suggested into the list. You’d expect to see the same <a href="https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/">list</a>. If you check it again, you ’d expect to see the following:</p>
+<pre><code>   ― Checking .gitignore
+  | Checking for items to remove...
+  ○ Nothing to see here - found no items to remove.
+  | Checking for items to change...
+  ○ Nothing to see here - found no items to change.
+  | Checking for items you can safely ignore...
+  ○ Found! You have safely ignored: .DS_Store, Thumbs.db, .hugo_build.lock
+  | Checking for items to ignore if you build the site on Netlify...
+  ○ Found! You have safely ignored: /public/, /resources/
+  | Checking for files required by blogdown but not committed...
+  ○ Great! Did not find such files.
+  ― Check complete: .gitignore</code></pre></li>
 </ul>
 </div>
-<div id="work-with-netlify" class="section level2">
-<h2>Work with Netlify</h2>
+<div id="work-with-netlify-for-deployment" class="section level2">
+<h2>Work with Netlify for deployment</h2>
 <p>Netlify provides a free service for personal account. Follow Jenney Sloane’s <a href="https://jennysloane.netlify.app/blog/blogdown/">blog</a>. Regarding hugo, mine hugo version is <code>0.96.0</code>, the latest one. Be sure it is consistent in all places.</p>
 <p>At the console, please run those <a href="https://www.apreshill.com/blog/2020-12-blogdown-checks/">checks</a> below and be sure they are all good.</p>
 <ul>
