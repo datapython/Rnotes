@@ -114,17 +114,17 @@ active: false</code></pre>
 <p>You can follow the [routine steps] here(<a href="https://stackoverflow.com/questions/66065099/how-to-update-github-authentification-token-on-rstudio-to-match-the-new-policy" class="uri">https://stackoverflow.com/questions/66065099/how-to-update-github-authentification-token-on-rstudio-to-match-the-new-policy</a>) or run the code like this below once you get your token,</p>
 <p><code>git push https://&lt;GITHUB_ACCESS_TOKEN&gt;@github.com/&lt;GITHUB_USERNAME&gt;/&lt;REPOSITORY_NAME&gt;.git</code></p>
 </div>
-<div id="last-step---go-to-your-netlify-account-to-re-deploy" class="section level2">
-<h2>Last step - go to your Netlify account to re-deploy</h2>
+<div id="last-step---go-to-your-netlify-account-to-deploy" class="section level2">
+<h2>Last step - go to your Netlify account to deploy</h2>
 <p>Just follow the above blogs to deploy your blogdown site. But, one thing I ’d like to point out is that the continuous deployment was not working with my site. What I found out is that in the <code>Continuous Deployment - Settings for Continuous Deployment from a Git repository</code> section, my <code>build setting</code> was like this:</p>
 <pre><code>    Build settings
 
     Base directory              Not set
-    Build command               hugo   &lt;--- delete it fix the problem
+    Build command               hugo   
     Publish directory           public
     Deploy log visibility       Logs are public
     Build                       Active</code></pre>
-<p>Build command was set hugo. After delete it and leave it blank. The CD immediately begins.</p>
+<p>One blog suggests to leave Build command <a href="https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/">blank</a>. But <a href="https://www.apreshill.com/blog/2019-02-spoonful-netlify-toml/">Alison Hill</a> suggests to have <code>hugo</code> there. I will keep it there and also edited the netlify.toml file’s corresponding Build command to <code>"hugo"</code> too from <code>"hugo --gc --minify -b $URL"</code>. I will see if it will work.</p>
 <p>You are done! Congratulations!</p>
 </div>
 <div id="references" class="section level2 unnumbered">
