@@ -1,0 +1,101 @@
+---
+title: "Simple setup for my first blogdown"
+lastmod: ''
+date: '2022-04-08'
+image:
+  caption: ""
+  focal_point: Smart
+links:
+- icon: twitter
+  icon_pack: fab
+  name: Follow
+  url: https://twitter.com/Sean_LSG
+summary: Collected notes on setting up my first blogdown, which may be helpful for beginners.
+tags:
+- Rmarkdown
+- blogdown
+- R
+- Netlify
+- hugo
+- tutorial
+external_link: ''
+url_code: ''
+url_pdf: ''
+url_slides: ''
+url_video: ''
+bibliography: /home/sl1016/SLfiles/all_R/myproj/blogs/Rnotes/content/project/refs.bib
+toc: true
+---
+
+This is a collection of notes on setting up my first blogdown, which is simple including only Home, Blogs, Projects and Contact. For comprehensive coverage, please refer to the ebook by Yihui Xie, Amber Thomas, Alison Presmanes Hill [-@hill_blogdown_2022]. Several tutorials including Alison Hill's [blog1](https://www.apreshill.com/blog/2020-12-blogdown-checks/) and [blog2](https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/), A. Solomon Kurz's [blog](https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/) and Jenny Sloane's [blog](https://jennysloane.netlify.app/blog/blogdown/) are great resources.
+
+Here, I will just emphasize some of the important points. If you happen to read this post, I 'd assume that you are already familiar to R, RStudio as well as github. Otherwise, please install them first before going any further. 
+
+## Start project from creating repo at your github  
+
+You can find the screenshot from Alison Hill's [blog](https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/). Then, click the green code button, you see `https://github.com/your_user_name/your_repo.git` with a double squares at the right end. Click to copy this URL link and go to your RStudio, create a new project, `File -> New Project -> Version Control -> Git`, paste the link to start your new project directory, which is your project root directory.  
+
+## Work with blogdown  
+
+Now, you are ready to work on your blogdown project. Before doing anything, be sure blogdown is installed and then you can work on the console.  
+
+* `blogdown::install_hugo()`: hugo is a static site generator.  
+* `blogdown::new_site(theme = "wowchemy/starter-academic")`: I used this theme, but you can try [others](https://hugothemesfree.com/). At this step, you would see a bunch of files and folders generated in your project directory. And choose `y` to the prompt `Want to serve and preview the site now? (y/n).` to start the local server.  If you click the `viewer` tab in a quadrant pane, you 'd see your site open.    
+
+## Work on .gitignore  
+
+There are files we won't like to share with public for reasons. We can put those under `.gitignore`.  If you are not so sure, you can run a couple of check at console to get suggestions.  
+
+* `blogdown::check_gitignore()`: You get the file or folder names suggested.  
+* `file.edit(".gitignore")`: Add all suggested into the list. You'd get the same [list](https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/)    
+
+## Work with Netlify  
+
+Netlify provides a free service for personal account. Follow Jenney Sloane's [blog](https://jennysloane.netlify.app/blog/blogdown/). Regarding hugo, mine hugo version is `0.96.0`, the latest one. Be sure it is consistent in all places.  
+
+At the console, please run those [checks](https://www.apreshill.com/blog/2020-12-blogdown-checks/) below and be sure they are all good.  
+
+* `check_config()`  
+* `check_gitignore()`  
+* `check_hugo()`  
+* `check_content()`  
+* `check_netlify()`  
+
+At this step, your site is fully ready with all the features provided.  
+
+## Personalize your site  
+
+In my case, I just need it for blog post for my random notes and some small personal project. So, I trimmed quite bit of the features and only kept a couple of what I need.  
+
+* `config > _default > config.yaml`  
+  
+      title: your_website_name
+      baseurl: 'https://your_website_name.netlify.app/'
+      copyright: '© something (2022)'  
+      
+* `config > _default > params.yaml`  
+
+      email: youremail@yourmail.com
+      phone: 888 888 88 88   
+      
+* `config > _default > menu.yaml`  
+
+  Please go to https://wowchemy.com/docs/getting-started/customization/#menu-items for the menu list.   
+  
+* `content > authors > admin > _menu.yaml_index.md`   
+
+      superuser: true
+      title: Your name  
+      
+      Rest of them are self_explained.   
+      
+* `content > home`    
+
+  For those .md files, if any of them is not what you want to show but would like to keep it in the project, you can simply disable it by choose `false`.  
+  
+      # Activate this widget? true/false
+      active: false
+
+  However, you do need to be sure all of the actions here are consistent with the menu list selection. By the way, you can also delete those you don't need any more for the future.    
+  
+## References

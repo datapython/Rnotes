@@ -6,7 +6,7 @@ theme: "starter-hugo-academic"
 
 title: Learn R  # Website name
 baseurl: 'https://learn-r.netlify.app/' # Website URL
-copyright: '' # Footer text, e.g. '© {year} Me'
+copyright: '© Learn-R {2022}'
 
 ############################
 ## LANGUAGE

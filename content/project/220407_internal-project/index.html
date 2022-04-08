@@ -1,0 +1,108 @@
+---
+title: "Simple setup for my first blogdown"
+lastmod: ''
+date: '2022-04-08'
+image:
+  caption: ""
+  focal_point: Smart
+links:
+- icon: twitter
+  icon_pack: fab
+  name: Follow
+  url: https://twitter.com/Sean_LSG
+summary: Collected notes on setting up my first blogdown, which may be helpful for beginners.
+tags:
+- Rmarkdown
+- blogdown
+- R
+- Netlify
+- hugo
+- tutorial
+external_link: ''
+url_code: ''
+url_pdf: ''
+url_slides: ''
+url_video: ''
+bibliography: /home/sl1016/SLfiles/all_R/myproj/blogs/Rnotes/content/project/refs.bib
+toc: true
+---
+
+
+<div id="TOC">
+
+</div>
+
+<p>This is a collection of notes on setting up my first blogdown, which is simple including only Home, Blogs, Projects and Contact. For comprehensive coverage, please refer to the ebook by Yihui Xie, Amber Thomas, Alison Presmanes Hill <span class="citation">(<a href="#ref-hill_blogdown_2022" role="doc-biblioref">2022</a>)</span>. Several tutorials including Alison Hill’s <a href="https://www.apreshill.com/blog/2020-12-blogdown-checks/">blog1</a> and <a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">blog2</a>, A. Solomon Kurz’s <a href="https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/">blog</a> and Jenny Sloane’s <a href="https://jennysloane.netlify.app/blog/blogdown/">blog</a> are great resources.</p>
+<p>Here, I will just emphasize some of the important points. If you happen to read this post, I ’d assume that you are already familiar to R, RStudio as well as github. Otherwise, please install them first before going any further.</p>
+<div id="start-project-from-creating-repo-at-your-github" class="section level2">
+<h2>Start project from creating repo at your github</h2>
+<p>You can find the screenshot from Alison Hill’s <a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">blog</a>. Then, click the green code button, you see <code>https://github.com/your_user_name/your_repo.git</code> with a double squares at the right end. Click to copy this URL link and go to your RStudio, create a new project, <code>File -&gt; New Project -&gt; Version Control -&gt; Git</code>, paste the link to start your new project directory, which is your project root directory.</p>
+</div>
+<div id="work-with-blogdown" class="section level2">
+<h2>Work with blogdown</h2>
+<p>Now, you are ready to work on your blogdown project. Before doing anything, be sure blogdown is installed and then you can work on the console.</p>
+<ul>
+<li><code>blogdown::install_hugo()</code>: hugo is a static site generator.<br />
+</li>
+<li><code>blogdown::new_site(theme = "wowchemy/starter-academic")</code>: I used this theme, but you can try <a href="https://hugothemesfree.com/">others</a>. At this step, you would see a bunch of files and folders generated in your project directory. And choose <code>y</code> to the prompt <code>Want to serve and preview the site now? (y/n).</code> to start the local server. If you click the <code>viewer</code> tab in a quadrant pane, you ’d see your site open.</li>
+</ul>
+</div>
+<div id="work-on-.gitignore" class="section level2">
+<h2>Work on .gitignore</h2>
+<p>There are files we won’t like to share with public for reasons. We can put those under <code>.gitignore</code>. If you are not so sure, you can run a couple of check at console to get suggestions.</p>
+<ul>
+<li><code>blogdown::check_gitignore()</code>: You get the file or folder names suggested.<br />
+</li>
+<li><code>file.edit(".gitignore")</code>: Add all suggested into the list. You’d get the same <a href="https://solomonkurz.netlify.app/post/2021-05-03-blogdown-updates-prompted-a-website-overhaul-these-are-my-notes/">list</a></li>
+</ul>
+</div>
+<div id="work-with-netlify" class="section level2">
+<h2>Work with Netlify</h2>
+<p>Netlify provides a free service for personal account. Follow Jenney Sloane’s <a href="https://jennysloane.netlify.app/blog/blogdown/">blog</a>. Regarding hugo, mine hugo version is <code>0.96.0</code>, the latest one. Be sure it is consistent in all places.</p>
+<p>At the console, please run those <a href="https://www.apreshill.com/blog/2020-12-blogdown-checks/">checks</a> below and be sure they are all good.</p>
+<ul>
+<li><code>check_config()</code><br />
+</li>
+<li><code>check_gitignore()</code><br />
+</li>
+<li><code>check_hugo()</code><br />
+</li>
+<li><code>check_content()</code><br />
+</li>
+<li><code>check_netlify()</code></li>
+</ul>
+<p>At this step, your site is fully ready with all the features provided.</p>
+</div>
+<div id="personalize-your-site" class="section level2">
+<h2>Personalize your site</h2>
+<p>In my case, I just need it for blog post for my random notes and some small personal project. So, I trimmed quite bit of the features and only kept a couple of what I need.</p>
+<ul>
+<li><p><code>config &gt; _default &gt; config.yaml</code></p>
+<pre><code>title: your_website_name
+baseurl: &#39;https://your_website_name.netlify.app/&#39;
+copyright: &#39;© something (2022)&#39;  </code></pre></li>
+<li><p><code>config &gt; _default &gt; params.yaml</code></p>
+<pre><code>email: youremail@yourmail.com
+phone: 888 888 88 88   </code></pre></li>
+<li><p><code>config &gt; _default &gt; menu.yaml</code></p>
+<p>Please go to <a href="https://wowchemy.com/docs/getting-started/customization/#menu-items" class="uri">https://wowchemy.com/docs/getting-started/customization/#menu-items</a> for the menu list.</p></li>
+<li><p><code>content &gt; authors &gt; admin &gt; _menu.yaml_index.md</code></p>
+<pre><code>superuser: true
+title: Your name  
+
+Rest of them are self_explained.   </code></pre></li>
+<li><p><code>content &gt; home</code></p>
+<p>For those .md files, if any of them is not what you want to show but would like to keep it in the project, you can simply disable it by choose <code>false</code>.</p>
+<pre><code># Activate this widget? true/false
+active: false</code></pre>
+<p>However, you do need to be sure all of the actions here are consistent with the menu list selection. By the way, you can also delete those you don’t need any more for the future.</p></li>
+</ul>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-hill_blogdown_2022" class="csl-entry">
+Hill, Alison Presmanes, Amber Thomas. 2022. <em>Blogdown: <span>Creating</span> <span>Websites</span> with <span>R</span> <span>Markdown</span></em>. <a href="https://bookdown.org/yihui/blogdown/">https://bookdown.org/yihui/blogdown/</a>.
+</div>
+</div>
+</div>
