@@ -5,7 +5,7 @@ date: "`r Sys.time()`"
 categories: ["R"]
 tags: ["R Markdown", "bart", "tree", "bayesian statistics"]
 
-bibiliography: ref.bib
+bibliography: ref.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 # You can also embed plots. See Figure \@ref(fig:pie) for example:
 ```
 
-# Let's start with a simple example   
+# Let\'s start with a simple example   
 
 
 
@@ -29,3 +29,4 @@ knitr::opts_chunk$set(
 
 ```
 
+# References
