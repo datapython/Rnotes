@@ -1,0 +1,31 @@
+---
+title: "bart - bayesian additive regression tree explained"
+author: "Shengguo"
+date: "`r Sys.time()`"
+categories: ["R"]
+tags: ["R Markdown", "bart", "tree", "bayesian statistics"]
+
+bibiliography: ref.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	collapse = TRUE
+)
+
+
+# You can also embed plots. See Figure \@ref(fig:pie) for example:
+```
+
+# Let's start with a simple example   
+
+
+
+
+```{r echo=TRUE}
+
+```
+
